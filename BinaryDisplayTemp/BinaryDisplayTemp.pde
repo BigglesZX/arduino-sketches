@@ -9,7 +9,7 @@ int temp = 0;
  
 // define DIGITAL pins for the 74HC595
 int data = 2;
-int clock = 2;
+int clock = 3;
 int latch = 4;
 
 // run once at startup/reset
@@ -62,8 +62,8 @@ float getVoltage(int pin) {
 
 void doKITT() {
   // fire the LEDs in sequence, just like KITT
-  int interDelay = 100;
-  int betweenDelay = 300;
+  int interDelay = 50;
+  int betweenDelay = 100;
   
   // left-to-right
   displayInt(128);
