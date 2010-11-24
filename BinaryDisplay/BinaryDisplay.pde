@@ -9,11 +9,11 @@
  
 // define pins for the 74HC595
 int data = 2;
-int clock = 2;
+int clock = 3;
 int latch = 4;
 
 // define our counter
-int count = 1;
+int count = 0;
 
 // run once at startup/reset
 void setup() {
@@ -30,7 +30,7 @@ void loop() {
   
   // reset when we hit the max value for 8-bit display
   if (count == 256) {
-    count = 1;
+    count = 0;
   }
   
   digitalWrite(latch, LOW);
