@@ -47,13 +47,16 @@ void loop() {
   }
   
   // get value from light sensor and adjust to reasonable tone values
+  // (feel free to play with these)
   int lightLevel = analogRead(photo);
-  lightLevel = map(lightLevel, 0, 900, 255, 512);
-  lightLevel = constrain(lightLevel, 255, 512);
+  //lightLevel = map(lightLevel, 0, 900, 255, 512);
+  //lightLevel = constrain(lightLevel, 255, 512);
+  lightLevel = map(lightLevel, 0, 900, 200, 5000);
+  lightLevel = constrain(lightLevel, 200, 5000);
   
   // get pot reading for pitch adjustment
   int potValue = analogRead(pot);
-  potValue = map(potValue, 0, 1024, 0, 200);
+  potValue = map(potValue, 0, 1024, 1, 200);
   float adjust = potValue * 0.01;
   
   Serial.print("Pot value: ");
