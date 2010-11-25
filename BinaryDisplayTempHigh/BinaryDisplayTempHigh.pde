@@ -45,8 +45,14 @@ void loop() {
   // is button pressed?
   int btn = digitalRead(button);
   if (btn == LOW) {
-    // pressed reset high
-    highTemp = 0;
+    // pressed - reset high
+    //highTemp = 0;
+    
+    // or
+    
+    // pressed - display high
+    displayInt(round(highTemp) | 128);
+    return;
   }
   
   // get reading
