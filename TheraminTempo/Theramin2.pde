@@ -56,24 +56,22 @@ void loop() {
   
   // get pot reading for pitch adjustment
   int potValue = analogRead(pot);
-  potValue = map(potValue, 0, 1024, 1, 200);
-  float adjust = potValue * 0.01;
+  potValue = map(potValue, 0, 1024, 10, 100);
   
   Serial.print("Pot value: ");
   Serial.print(analogRead(pot));
   Serial.print(", normalised: ");
   Serial.print(potValue);
   Serial.print(", adjust: ");
-  Serial.println(adjust);
   
   // make ze noise
   if (onAir) {
-    playTone(floor(lightLevel * adjust), 50);
+    playTone(floor(lightLevel), potValue);
   }
   
   //Serial.print("Light reading: ");
   //Serial.println(lightLevel);
-  //delay(1000);
+  delay(potValue);
 }
 
 void playTone(int tone, int duration) {
